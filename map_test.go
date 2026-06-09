@@ -1099,7 +1099,7 @@ func TestMapIterateHashKeyOneByteFull(t *testing.T) {
 }
 
 func TestMapGuessNonExistentKey(t *testing.T) {
-	if !platform.IsLinux {
+	if !platform.IsLinux || !platform.IsAndroid {
 		t.Skip("No need to test linux quirk on", runtime.GOOS)
 	}
 

@@ -47,7 +47,7 @@ func (r *auxvRuntimeReader) ReadAuxvPair() (uint64, uint64, error) {
 }
 
 func newAuxvRuntimeReader() (auxvPairReader, error) {
-	if !platform.IsLinux {
+	if !platform.IsLinux && !platform.IsAndroid {
 		return nil, fmt.Errorf("read auxv from runtime: %w", internal.ErrNotSupportedOnOS)
 	}
 

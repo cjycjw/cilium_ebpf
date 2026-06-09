@@ -13,6 +13,7 @@ const (
 
 const (
 	IsLinux   = runtime.GOOS == "linux"
+	IsAndroid = runtime.GOOS == "android"
 	IsWindows = runtime.GOOS == "windows"
 )
 

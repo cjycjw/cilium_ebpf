@@ -24,7 +24,7 @@ var symAddrs cache[string, uint64]
 // Any symbols missing in the kernel are ignored. Returns an error if multiple
 // addresses were found for a symbol.
 func AssignAddresses(symbols map[string]uint64) error {
-	if !platform.IsLinux {
+	if !platform.IsLinux && !platform.IsAndroid {
 		return fmt.Errorf("read /proc/kallsyms: %w", internal.ErrNotSupportedOnOS)
 	}
 

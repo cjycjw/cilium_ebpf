@@ -280,7 +280,7 @@ func TestProgramVerifierOutputOnError(t *testing.T) {
 	}
 
 	switch {
-	case platform.IsLinux:
+	case platform.IsLinux, platform.IsAndroid:
 		if !strings.Contains(ve.Error(), "R0 !read_ok") {
 			t.Logf("%+v", ve)
 			t.Error("Missing verifier log in error summary")

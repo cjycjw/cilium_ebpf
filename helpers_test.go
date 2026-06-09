@@ -239,7 +239,7 @@ func mustRun(tb testing.TB, prog *Program, opts *RunOptions) (retval uint32) {
 	if opts == nil {
 		opts = &RunOptions{}
 	}
-	if platform.IsLinux && opts.Data == nil {
+	if (platform.IsLinux || platform.IsAndroid) && opts.Data == nil {
 		opts.Data = internal.EmptyBPFContext
 	}
 	if platform.IsWindows {

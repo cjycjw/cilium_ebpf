@@ -47,7 +47,7 @@ func (f *COREFixup) String() string {
 }
 
 func (f *COREFixup) Apply(ins *asm.Instruction) error {
-	if !platform.IsLinux {
+	if !platform.IsLinux && !platform.IsAndroid {
 		return fmt.Errorf("CO-RE fixup: %w", internal.ErrNotSupportedOnOS)
 	}
 

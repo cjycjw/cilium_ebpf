@@ -106,7 +106,7 @@ func checkVersion(tb testing.TB, ufe *internal.UnsupportedFeatureError) {
 func SkipOnOldKernel(tb testing.TB, minVersion, feature string) {
 	tb.Helper()
 
-	if !platform.IsLinux {
+	if !platform.IsLinux && !platform.IsAndroid {
 		tb.Logf("Ignoring version constraint %s for %s on %s", minVersion, feature, runtime.GOOS)
 		return
 	}

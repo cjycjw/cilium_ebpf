@@ -411,7 +411,7 @@ func newProgramInfoFromFd(fd *sys.FD) (*ProgramInfo, error) {
 	}
 
 	// createdByUID and NrMapIds were introduced in the same kernel version.
-	if pi.maps != nil && platform.IsLinux {
+	if pi.maps != nil && (platform.IsLinux || platform.IsAndroid) {
 		pi.createdByUID = info.CreatedByUid
 		pi.haveCreatedByUID = true
 	}
