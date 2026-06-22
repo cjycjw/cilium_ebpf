@@ -35,7 +35,7 @@ const (
 func WithCapabilities(tb testing.TB, caps []Capability, f func()) {
 	tb.Helper()
 
-	if !platform.IsLinux || !platform.IsAndroid {
+	if !platform.IsLinux && !platform.IsAndroid {
 		f()
 		return
 	}

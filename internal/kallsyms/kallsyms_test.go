@@ -131,7 +131,7 @@ func BenchmarkAssignAddressesKallsyms(b *testing.B) {
 func mustOpenProcKallsyms(tb testing.TB) *os.File {
 	tb.Helper()
 
-	if !platform.IsLinux || !platform.IsAndroid {
+	if !platform.IsLinux && !platform.IsAndroid {
 		tb.Skip("/proc/kallsyms is a Linux concept")
 	}
 
